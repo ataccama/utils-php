@@ -19,7 +19,7 @@
         use SmartObject;
 
         /** @var Message[] */
-        private $messages = [];
+        protected $messages = [];
 
         /**
          * @param Message $message
