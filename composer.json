@@ -1,0 +1,24 @@
+{
+  "name": "ataccama/utils-php",
+  "license": "MIT",
+  "description": "PHP classes which may help and save your time.",
+  "version": "1.0",
+  "type": "library",
+  "require": {
+    "php": ">= 7.2.0",
+    "nette/utils": ">= 2.4",
+    "nette/tester": "^2.3"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "classmap": ["src/"],
+    "files": ["src/bootstrap.php"]
+  },
+  "minimum-stability": "stable",
+  "config": {
+    "platform": {
+      "php": "7.2"
+    }
+  }
+}

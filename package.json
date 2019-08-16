@@ -1,0 +1,17 @@
+{
+  "name": "utils-php",
+  "version": "1.0",
+  "description": "PHP classes which may help and save your time.",
+  "scripts": {
+    "tests": "vendor/bin/tester tests/"
+  },
+  "keywords": [
+    "ataccama"
+  ],
+  "author": "Miroslav Stolfa & Martin Jinda @ Ataccama Software s.r.o.",
+  "license": "MIT",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
