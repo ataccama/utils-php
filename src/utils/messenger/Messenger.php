@@ -68,9 +68,9 @@
         }
 
         /**
-         * @return string
+         * @return Message
          */
-        public function getLast(): string
+        public function getLast(): Message
         {
             return end($this->messages);
         }
