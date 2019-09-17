@@ -3,14 +3,16 @@
 
     use Tester\Assert;
 
+    use Ataccama\Common\Env as Env;
 
-    $pair = new \Ataccama\Environment\Pair("abc", "xyz");
+
+    $pair = new Env\Pair("abc", "xyz");
 
     Assert::same("abc", $pair->key);
 
     Assert::same("xyz", $pair->value);
 
-    $pairArray = new \Ataccama\Environment\PairArray([$pair]);
+    $pairArray = new Env\PairArray([$pair]);
 
     $pairArray->add($pair);
 

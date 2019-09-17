@@ -1,10 +1,10 @@
 <?php
 
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Utils;
 
     /**
      * Class DT
-     * @package Ataccama\Utils
+     * @package Ataccama\Common\Utils
      */
     final class DT
     {

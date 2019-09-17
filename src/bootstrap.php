@@ -6,23 +6,33 @@
      * Time: 10:24
      */
 
-    require __DIR__ . "/entities/IEntry.php";
-    require __DIR__ . "/entities/Entry.php";
-    require __DIR__ . "/entities/Message.php";
-    require __DIR__ . "/entities/NamedEntry.php";
-    require __DIR__ . "/entities/Person.php";
+    require __DIR__ . "/env/IEntry.php";
+    require __DIR__ . "/env/IArray.php";
+    require __DIR__ . "/env/IPair.php";
+    require __DIR__ . "/env/Databaseable.php";
 
-    require __DIR__ . "/utils/IArray.php";
-    require __DIR__ . "/utils/IPair.php";
-    require __DIR__ . "/utils/BaseArray.php";
+
+    require __DIR__ . "/env/Email.php";
+    require __DIR__ . "/env/Name.php";
+    require __DIR__ . "/env/Pair.php";
+    require __DIR__ . "/env/Message.php";
+
+
+    require __DIR__ . "/env/Entry.php";
+    require __DIR__ . "/env/BaseEntry.php";
+
+
+    require __DIR__ . "/env/BaseArray.php";
+    require __DIR__ . "/env/PairArray.php";
+
+
+    require __DIR__ . "/env/Person.php";
+
+
     require __DIR__ . "/utils/Convertor.php";
-    require __DIR__ . "/utils/Databaseable.php";
     require __DIR__ . "/utils/DT.php";
-    require __DIR__ . "/utils/Email.php";
     require __DIR__ . "/utils/JWT.php";
-    require __DIR__ . "/utils/Name.php";
-    require __DIR__ . "/utils/Pair.php";
-    require __DIR__ . "/utils/PairArray.php";
+
 
     require __DIR__ . "/utils/comparator/IComparator.php";
     require __DIR__ . "/utils/comparator/Comparable.php";
@@ -31,3 +41,8 @@
 
     require __DIR__ . "/utils/messenger/Message.php";
     require __DIR__ . "/utils/messenger/Messenger.php";
+
+    require __DIR__ . "/utils/cache/IKey.php";
+    require __DIR__ . "/utils/cache/Key.php";
+    require __DIR__ . "/utils/cache/EntryKey.php";
+    require __DIR__ . "/utils/cache/DataStorage.php";

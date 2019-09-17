@@ -1,70 +1,38 @@
 <?php
 
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Utils\Messenger;
 
-    use Ataccama\Environment\IArray;
+    use Ataccama\Common\Env\BaseArray;
     use Nette\SmartObject;
 
 
     /**
-     * Class Errors
-     * @package Ataccama\Utils
+     * Class Messenger
+     * @package Ataccama\Common\Utils\Messenger
      * @property-read string    $last
      * @property-read Messenger $dangers
      * @property-read Messenger $successes
      * @property-read Messenger $warnings
      */
-    class Messenger implements \Countable, \Iterator, IArray
+    class Messenger extends BaseArray
     {
         use SmartObject;
 
-        /** @var Message[] */
-        protected $messages = [];
-
         /**
          * @param Message $message
-         * @return Messenger
          */
-        public function add(Message $message): Messenger
+        public function add($message)
         {
-            $this->messages[] = $message;
+            parent::add($message);
 
-            return $this;
         }
 
+        /**
+         * @return Message
+         */
         public function current(): Message
         {
-            return current($this->messages);
-        }
-
-        public function next(): void
-        {
-            next($this->messages);
-        }
-
-        public function key(): int
-        {
-            return key($this->messages);
-        }
-
-        public function valid(): bool
-        {
-            return isset($this->messages[$this->key()]);
-        }
-
-        public function rewind(): void
-        {
-            reset($this->messages);
-        }
-
-        public function count()
-        {
-            return count($this->messages);
-        }
-
-        public function toArray(): array
-        {
-            return $this->messages;
+            return parent::current();
         }
 
         /**
@@ -72,7 +40,7 @@
          */
         public function getLast(): Message
         {
-            return end($this->messages);
+            return end($this->items);
         }
 
         /**
@@ -82,7 +50,7 @@
         protected function list(string $type = Message::SUCCESS): Messenger
         {
             $messages = new Messenger();
-            foreach ($this->messages as $message) {
+            foreach ($this as $message) {
                 if ($message->type == $type) {
                     $messages->add($message);
                 }

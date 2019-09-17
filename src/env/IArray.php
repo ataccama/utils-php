@@ -1,11 +1,10 @@
 <?php
 
-
-    namespace Ataccama\Environment;
+    namespace Ataccama\Common\Env;
 
     /**
      * Interface IArray
-     * @package Ataccama\Environment\Entities\Base
+     * @package Ataccama\Common\Env
      */
     interface IArray
     {

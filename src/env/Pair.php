@@ -1,11 +1,10 @@
 <?php
 
-
-    namespace Ataccama\Environment;
+    namespace Ataccama\Common\Env;
 
     /**
      * Class Pair
-     * @package Ataccama\Environment\Entities\Base
+     * @package Ataccama\Common\Env
      */
     class Pair implements IPair
     {

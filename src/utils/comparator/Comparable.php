@@ -1,10 +1,10 @@
 <?php
 
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Utils\Comparator;
 
     /**
      * Interface Comparable
-     * @package Ataccama\Utils\Comparator
+     * @package Ataccama\Common\Utils\Comparator
      * @property-read int $value
      */
     interface Comparable

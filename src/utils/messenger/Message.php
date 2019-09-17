@@ -1,15 +1,15 @@
 <?php
 
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Utils\Messenger;
 
     use Nette\Utils\DateTime;
 
 
     /**
-     * Class Error
-     * @package Ataccama\Utils
+     * Class Message
+     * @package Ataccama\Common\Utils\Messsenger
      */
-    class Message extends \Ataccama\Environment\Entities\Base\Message
+    class Message extends \Ataccama\Common\Env\Message
     {
         const ERROR = "danger";
         const SUCCESS = "success";

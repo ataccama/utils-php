@@ -4,10 +4,12 @@
 
     use Tester\Assert;
 
+    use Ataccama\Common\Utils\Messenger as Utils;
 
-    $messenger = new \Ataccama\Utils\Messenger();
 
-    $message = new \Ataccama\Utils\Message("Test.", \Ataccama\Utils\Message::SUCCESS, 200);
+    $messenger = new Utils\Messenger();
+
+    $message = new Utils\Message("Test.", Utils\Message::SUCCESS, 200);
     $messenger->add($message);
 
 

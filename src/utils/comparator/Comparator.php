@@ -1,11 +1,11 @@
 <?php
 
 
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Utils\Comparator;
 
     /**
      * Class Comparator
-     * @package Ataccama\Utils\Comparator
+     * @package Ataccama\Common\Utils\Comparator
      */
     class Comparator implements IComparator
     {

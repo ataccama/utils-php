@@ -1,15 +1,14 @@
 <?php
 
-    namespace Ataccama\Environment;
+    namespace Ataccama\Common\Env;
 
     /**
      * Class BaseArray
-     * @package Ataccama\Environment\Entities\Base
+     * @package Ataccama\Common\Env
      */
     class BaseArray implements \Iterator, IArray, \Countable
     {
         protected $items = [];
-        private $pointer = 0;
 
         public function add($o)
         {
@@ -23,12 +22,12 @@
 
         public function current()
         {
-            return $this->items[$this->pointer];
+            return current($this->items);
         }
 
         public function next(): void
         {
-            $this->pointer++;
+            next($this->items);
         }
 
         /**
@@ -36,7 +35,7 @@
          */
         public function key(): int
         {
-            return $this->pointer;
+            return key($this->items);
         }
 
         /**
@@ -44,12 +43,12 @@
          */
         public function valid(): bool
         {
-            return isset($this->items[$this->pointer]);
+            return (bool) current($this->items);
         }
 
         public function rewind(): void
         {
-            $this->pointer = 0;
+            reset($this->items);
         }
 
         public function toArray(): array

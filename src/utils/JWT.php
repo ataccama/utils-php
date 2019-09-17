@@ -1,10 +1,10 @@
 <?php
 
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Utils;
 
     /**
      * Class JWT
-     * @package Ataccama\Utils
+     * @package Ataccama\Common\Utils
      */
     class JWT
     {

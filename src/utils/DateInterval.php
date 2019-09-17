@@ -1,6 +1,6 @@
 <?php
 
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Utils;
 
     use Nette\SmartObject;
     use Nette\Utils\DateTime;
@@ -8,7 +8,7 @@
 
     /**
      * Class DateInterval
-     * @package Ataccama\Environment\Entities\Base
+     * @package Ataccama\Common\Utils
      * @property-read \DateInterval $interval
      */
     class DateInterval

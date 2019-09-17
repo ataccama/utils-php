@@ -1,13 +1,13 @@
 <?php
 
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Env;
 
     use Nette\SmartObject;
 
 
     /**
      * Class Email
-     * @package Ataccama\Utils
+     * @package Ataccama\Common\Env
      * @property-read string $domain
      */
     class Email

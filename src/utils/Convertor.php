@@ -1,9 +1,11 @@
 <?php
 
+    namespace Ataccama\Common\Utils;
 
-    namespace Ataccama\Utils;
-
-
+    /**
+     * Class Convertor
+     * @package Ataccama\Common\Utils
+     */
     class Convertor
     {
         public static function toBase($num, int $b = 62)

@@ -1,11 +1,10 @@
 <?php
 
-
-    namespace Ataccama\Environment;
+    namespace Ataccama\Common\Env;
 
     /**
      * Interface Databaseable
-     * @package Ataccama\Environment\Entities\Base
+     * @package Ataccama\Common\Env
      */
     interface Databaseable
     {

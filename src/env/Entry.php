@@ -1,14 +1,14 @@
 <?php
 
-    namespace Ataccama\Environment\Entities\Base;
+    namespace Ataccama\Common\Env;
 
     use Nette\SmartObject;
 
 
     /**
      * Class Entry
-     * @package Ataccama\Environment\Base
-     * @property-read string $id
+     * @package Ataccama\Common\Env
+     * @property-read mixed $id
      */
     class Entry implements IEntry
     {
@@ -27,9 +27,9 @@
         }
 
         /**
-         * @return string
+         * @return mixed
          */
-        public function getId(): string
+        public function getId()
         {
             return $this->id;
         }

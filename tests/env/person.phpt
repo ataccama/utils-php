@@ -4,8 +4,8 @@
     use Tester\Assert;
 
 
-    $person = new \Ataccama\Environment\Entities\Base\Person(1, new \Ataccama\Utils\Name("Miroslav Stolfa"),
-        new \Ataccama\Utils\Email("miroslav.stolfa@ataccama.com"));
+    $person = new \Ataccama\Common\Env\Person(1, new \Ataccama\Common\Env\Name("Miroslav Stolfa"),
+        new \Ataccama\Common\Env\Email("miroslav.stolfa@ataccama.com"));
 
     Assert::same("ataccama.com", $person->email->domain);
 

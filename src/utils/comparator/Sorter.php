@@ -1,9 +1,11 @@
 <?php
 
+    namespace Ataccama\Common\Utils\Comparator;
 
-    namespace Ataccama\Utils;
-
-
+    /**
+     * Class Sorter
+     * @package Ataccama\Common\Utils\Comparator
+     */
     class Sorter
     {
         const DESC = false;

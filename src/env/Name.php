@@ -1,7 +1,6 @@
 <?php
 
-
-    namespace Ataccama\Utils;
+    namespace Ataccama\Common\Env;
 
     use Nette\SmartObject;
 

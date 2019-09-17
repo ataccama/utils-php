@@ -1,18 +1,13 @@
 <?php
 
-    namespace Ataccama\Environment\Entities\Base;
-
-    use Nette\SmartObject;
-
+    namespace Ataccama\Common\Env;
 
     /**
      * Class Message
-     * @package Ataccama\Environment\Entities\Base
+     * @package Ataccama\Common\Env
      */
     class Message
     {
-        use SmartObject;
-
         /** @var string */
         public $text;
 
