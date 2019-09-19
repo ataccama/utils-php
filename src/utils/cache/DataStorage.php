@@ -28,6 +28,9 @@
          */
         public function __construct(string $persistDir, bool $cache = true)
         {
+            if (!file_exists($persistDir)) {
+                mkdir($persistDir);
+            }
             $storage = new FileStorage($persistDir);
             $this->cachedStorage = new Cache($storage, "layer.data");
             $this->cache = $cache;
