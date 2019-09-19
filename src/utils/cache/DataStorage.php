@@ -38,6 +38,7 @@
          *
          * @param IKey $key
          * @return mixed|null
+         * @throws \Throwable
          */
         public function get(IKey $key)
         {
@@ -67,20 +68,22 @@
         /**
          * Adds object to data storage and cached it.
          *
-         *
-         * @param IKey $key
-         * @param      $o
+         * @param IKey   $key
+         * @param        $o
+         * @param string $expireIn
+         * @param bool   $cacheSliding
          * @return mixed
+         * @throws \Throwable
          */
-        public function add(IKey $key, $o)
+        public function add(IKey $key, $o, $expireIn = '2 months', $cacheSliding = true)
         {
             $key = self::getKey($key);
 
             $this->objects[$key] = $o;
             if ($this->cache) {
                 $this->cachedStorage->save($key, $o, [
-                    Cache::EXPIRE  => '2 months',
-                    Cache::SLIDING => true
+                    Cache::EXPIRE  => $expireIn,
+                    Cache::SLIDING => $cacheSliding
                 ]);
             }
 
