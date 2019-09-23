@@ -80,9 +80,9 @@
          *
          * @param bool             $type
          * @param IComparator|null $comparator
-         * @return bool
+         * @return BaseArray|bool
          */
-        public function sort(bool $type = Sorter::ASC, IComparator $comparator = null): bool
+        public function sort(bool $type = Sorter::ASC, IComparator $comparator = null)
         {
             if (!isset($comparator)) {
                 $comparator = new Comparator();
@@ -96,6 +96,6 @@
 
             Sorter::sort($this->items, $comparator, $type);
 
-            return true;
+            return $this;
         }
     }
