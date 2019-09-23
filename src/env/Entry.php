@@ -33,4 +33,19 @@
         {
             return $this->id;
         }
+
+        /**
+         * @param IEntry[] $entries
+         * @return BaseArray
+         */
+        public static function toIds(array $entries): BaseArray
+        {
+            $array = new BaseArray();
+
+            foreach ($entries as $entry) {
+                $array->add($entry->id);
+            }
+
+            return $array;
+        }
     }

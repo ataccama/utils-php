@@ -63,4 +63,9 @@
         {
             return count($this->items);
         }
+
+        public function get($i)
+        {
+            return $this->items[$i];
+        }
     }
