@@ -25,7 +25,7 @@ class DatabaseEntity implements Databaseable {
     }
 }
 ```
-### Cached Data Storare
+### Cached Data Storage
 ```
 // your object
 $object = new ObjectWithSerializableData();
