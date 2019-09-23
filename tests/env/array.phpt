@@ -67,3 +67,9 @@
         ->getValue());
     Assert::same(40, $array->get(0)
         ->getValue());
+
+    $array = new \Ataccama\Common\Env\BaseArray();
+    $array->add(1);
+    $array->add(2);
+    $array->add(3);
+    Assert::same(false, $array->sort());
