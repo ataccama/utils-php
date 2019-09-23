@@ -47,6 +47,10 @@
         {
             $key = self::getKey($key);
 
+            if (isset($this->objects[$key])) {
+                return $this->objects[$key];
+            }
+
             if ($this->cache) {
                 $o = $this->cachedStorage->load($key);
                 if ($o !== null) {
