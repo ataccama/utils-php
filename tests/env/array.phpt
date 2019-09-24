@@ -72,4 +72,13 @@
     $array->add(1);
     $array->add(2);
     $array->add(3);
+
     Assert::same(false, $array->sort());
+
+    $array_2 = new \Ataccama\Common\Env\BaseArray();
+    $array_2->add(10)
+        ->add(20)
+        ->add(30);
+    $array_2->insert($array);
+
+    Assert::count(6, $array_2);

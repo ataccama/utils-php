@@ -19,6 +19,8 @@
         public function add($o)
         {
             $this->items[] = $o;
+
+            return $this;
         }
 
         public function empty(): void
@@ -95,6 +97,19 @@
             }
 
             Sorter::sort($this->items, $comparator, $type);
+
+            return $this;
+        }
+
+        /**
+         * @param BaseArray $baseArray
+         * @return BaseArray
+         */
+        public function insert(BaseArray $baseArray)
+        {
+            foreach ($baseArray as $item) {
+                $this->add($item);
+            }
 
             return $this;
         }
