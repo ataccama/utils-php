@@ -101,11 +101,7 @@
             return $this;
         }
 
-        /**
-         * @param BaseArray $baseArray
-         * @return BaseArray
-         */
-        public function insert(BaseArray $baseArray)
+        public function insert($baseArray)
         {
             foreach ($baseArray as $item) {
                 $this->add($item);
