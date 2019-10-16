@@ -106,4 +106,9 @@
 
             return $this;
         }
+
+        public function clear(): void
+        {
+            $this->items = [];
+        }
     }
