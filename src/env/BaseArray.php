@@ -38,10 +38,7 @@
             next($this->items);
         }
 
-        /**
-         * @return int
-         */
-        public function key(): int
+        public function key()
         {
             return key($this->items);
         }
