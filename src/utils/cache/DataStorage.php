@@ -101,13 +101,23 @@
          * Call this function when stored data are changed.
          *
          * @param IKey $key
+         * @throws \Throwable
          */
         public function notifyChange(IKey $key): void
         {
+            $dependency = $this->getDependency($key);
+
             if ($this->cache) {
                 $this->cachedStorage->remove(self::getKey($key));
             }
             unset($this->objects[self::getKey($key)]);
+
+            if ($dependency != null) {
+                foreach ($dependency->listParents() as $parent) {
+                    $this->notifyChange($parent->getKey());
+                    $this->removeDependency($key, $parent->getKey());
+                }
+            }
         }
 
         /**
@@ -117,5 +127,46 @@
         public static function getKey(IKey $key): string
         {
             return (!empty($key->getPrefix()) ? $key->getPrefix() . '_' : '') . $key->id;
+        }
+
+        private function getDependency(IKey $child): ?Dependency
+        {
+            return $this->get(new Dependency($child));
+        }
+
+        /**
+         * @param IKey $child
+         * @param IKey $parent
+         * @throws \Throwable
+         */
+        public function createDependency(IKey $child, IKey $parent): void
+        {
+            $dependency = $this->get(new Dependency($child));
+            if ($dependency == null) {
+                $dependency = new Dependency($child);
+            }
+
+            $dependency->addParent(new Dependency($parent));
+
+            $this->add($dependency, $dependency);
+        }
+
+        /**
+         * @param IKey $child
+         * @param IKey $parent
+         * @throws \Throwable
+         */
+        protected function removeDependency(IKey $child, IKey $parent): void
+        {
+            $dependency = $this->get(new Dependency($child));
+            if ($dependency != null && $dependency instanceof Dependency) {
+                $dependency->removeDependency(new Dependency($parent));
+
+                if ($dependency->count() > 0) {
+                    $this->add($dependency, $dependency);
+                } else {
+                    $this->notifyChange($dependency);
+                }
+            }
         }
     }

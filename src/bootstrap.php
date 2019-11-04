@@ -45,4 +45,5 @@
     require __DIR__ . "/utils/cache/IKey.php";
     require __DIR__ . "/utils/cache/Key.php";
     require __DIR__ . "/utils/cache/EntryKey.php";
+    require __DIR__ . "/utils/cache/Dependency.php";
     require __DIR__ . "/utils/cache/DataStorage.php";
