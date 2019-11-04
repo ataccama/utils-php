@@ -46,3 +46,13 @@ $objectFromCache = $cache->get($key);
 $cache->notifyChange($key);
 ```
 **Hint:** It is very useful in complex repositories, when some data depend on other data and you are able to speed up whole system, because you load only changed data.
+### Dependency
+```
+// defining dependencies
+$cache->createDependency($childKey, $parentKey);
+$cache->createDependency($parentKey, $grandParentKey);
+
+// automatic update of parent and grand parent when child changed
+$cache->notifyChange($childKey)
+```
+No data left in the cache.
