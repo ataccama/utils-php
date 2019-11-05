@@ -5,13 +5,14 @@ Bunch of helpful classes, interfaces, traits.
 - Comparator + interface Comparable
 - Sorter (using our Comparable interface)
 - Messenger, Message
-- JWT encoding
 - Pair, Array
 - cached data storage (useful for complex repositories)
 - interface Databaseable
 
 ## Using
+This is an introduction of some features included in this bundle.
 ### Databaseable
+This interface is useful for preparing data for saving into a database.
 ```
 class DatabaseEntity implements Databaseable {
 
@@ -26,9 +27,11 @@ class DatabaseEntity implements Databaseable {
 }
 ```
 ### Cached Data Storage
+If you want to speed up your system, a cache is probably one of the way which you may choose. Using is very easy. Look at the example below.
+#### Example
 ```
 // your object
-$object = new ObjectWithSerializableData();
+$object = new SerializableObject();
 
 // init our data storage
 $cache = new DataStorage(__DIR__ . "/../tmp");
@@ -47,12 +50,14 @@ $cache->notifyChange($key);
 ```
 **Hint:** It is very useful in complex repositories, when some data depend on other data and you are able to speed up whole system, because you load only changed data.
 ### Dependency
+That is very useful for multi-level caching of data structures. For example: Imagine that you have a data object called X compounded from smaller data objects A, B and C coming from different resources. For a better speed of a system it is good to use cache for each small object A, B and C and to create dependency between these small objects and the big one X, which would be in the cache as well. This will cause that if change any of the small objects - only that object would be need to reload. After it, the big one will be created from two small from the cache and third (now reloaded) also from cache. At the end the big one X will be stored in the cache as well again until any of the smaller objects will change.
+#### Example
 ```
-// defining dependencies
+// defining dependencies with IKey
 $cache->createDependency($childKey, $parentKey);
 $cache->createDependency($parentKey, $grandParentKey);
 
-// automatic update of parent and grand parent when child changed
+// automatic update of parent and grandparent when child changed
 $cache->notifyChange($childKey)
 ```
-No data left in the cache.
+Because of a child changed, all dependent data (a child, a parent and a grandparent) have become invalid and will be overridden with a newer version of data. 
