@@ -126,7 +126,7 @@
          */
         public static function getKey(IKey $key): string
         {
-            return (!empty($key->getPrefix()) ? $key->getPrefix() . '_' : '') . $key->id;
+            return (!empty($key->getPrefix()) ? $key->getPrefix() . '_' : '') . $key->getId();
         }
 
         private function getDependency(IKey $child): ?Dependency
