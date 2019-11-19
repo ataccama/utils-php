@@ -32,6 +32,7 @@
     require __DIR__ . "/utils/Convertor.php";
     require __DIR__ . "/utils/DT.php";
     require __DIR__ . "/utils/JWT.php";
+    require __DIR__ . "/utils/Clock.php";
 
 
     require __DIR__ . "/utils/comparator/IComparator.php";
@@ -47,3 +48,7 @@
     require __DIR__ . "/utils/cache/EntryKey.php";
     require __DIR__ . "/utils/cache/Dependency.php";
     require __DIR__ . "/utils/cache/DataStorage.php";
+
+    require __DIR__ . "/utils/cron/ITask.php";
+    require __DIR__ . "/utils/cron/TimedTask.php";
+    require __DIR__ . "/utils/cron/Cron.php";
