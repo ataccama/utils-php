@@ -71,7 +71,16 @@
 
         public function get($i)
         {
-            return $this->items[$i];
+            if (isset($this->items[$i])) {
+                return $this->items[$i];
+            }
+
+            return null;
+        }
+
+        public function __isset($i)
+        {
+            return isset($this->items[$i]);
         }
 
         /**
