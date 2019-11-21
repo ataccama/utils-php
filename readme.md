@@ -8,6 +8,7 @@ Bunch of helpful classes, interfaces, traits.
 - Pair, Array
 - cached data storage (useful for complex repositories)
 - interface Databaseable
+- simple Cron (queue of definable tasks)
 
 ## Using
 This is an introduction of some features included in this bundle.
