@@ -78,7 +78,7 @@
             return null;
         }
 
-        public function __isset($i)
+        public function __isset(string $i)
         {
             return isset($this->items[$i]);
         }
