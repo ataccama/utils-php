@@ -60,4 +60,26 @@ $cache->createDependency($parentKey, $grandParentKey);
 // automatic update of parent and grandparent when child changed
 $cache->notifyChange($childKey)
 ```
-Because of a child changed, all dependent data (a child, a parent and a grandparent) have become invalid and will be overridden with a newer version of data. 
+Because of a child changed, all dependent data (a child, a parent and a grandparent) have become invalid and will be overridden with a newer version of data.
+### Cron
+This is a very simple `class` for creating a queue of tasks. You can basically create only one file `run.php` with tasks definition and execute only that.
+#### Example
+```
+// OPTIONAL
+// when you plan to use time-based tasks, you have to set a folder for persist files
+Clock::setDataPath( __DIR__ . "/persistData/clocks" );
+
+// creating a Cron
+$cron = new Cron();
+
+// class MyTask implements interface ITask or extends abstract class TimedTask
+$cron->addTask( new MyTask() );
+
+// executing
+$cron->run();
+
+// feedback
+foreach ($cron->messenger as $message) {
+    echo $message->type . ": " . $message->text;
+}
+```
