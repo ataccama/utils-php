@@ -75,6 +75,7 @@ $cron = new Cron();
 
 // class MyTask implements interface ITask or extends abstract class TimedTask
 $cron->addTask( new MyTask() );
+$cron->addTask( ... );
 
 // executing
 $cron->run();
