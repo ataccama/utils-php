@@ -19,22 +19,24 @@
          */
         public static function sort(array &$array, IComparator $comparator, int $type = self::ASC): array
         {
+            $keys = array_keys($array);
+
             $sorted = false;
             while (!$sorted) {
                 $sorted = true;
-                for ($i = 0; $i < count($array) - 1; $i++) {
+                for ($i = 0; $i < count($keys) - 1; $i++) {
                     if ($type) {
-                        if ($comparator->greater($array[$i], $array[$i + 1])) {
-                            $tmp = $array[$i];
-                            $array[$i] = $array[$i + 1];
-                            $array[$i + 1] = $tmp;
+                        if ($comparator->greater($array[$keys[$i]], $array[$keys[$i + 1]])) {
+                            $tmp = $array[$keys[$i]];
+                            $array[$keys[$i]] = $array[$keys[$i + 1]];
+                            $array[$keys[$i + 1]] = $tmp;
                             $sorted = false;
                         }
                     } else {
-                        if ($comparator->less($array[$i], $array[$i + 1])) {
-                            $tmp = $array[$i];
-                            $array[$i] = $array[$i + 1];
-                            $array[$i + 1] = $tmp;
+                        if ($comparator->less($array[$keys[$i]], $array[$keys[$i + 1]])) {
+                            $tmp = $array[$keys[$i]];
+                            $array[$keys[$i]] = $array[$keys[$i + 1]];
+                            $array[$keys[$i + 1]] = $tmp;
                             $sorted = false;
                         }
                     }
