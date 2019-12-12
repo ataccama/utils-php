@@ -20,6 +20,7 @@
 
     require __DIR__ . "/env/Entry.php";
     require __DIR__ . "/env/BaseEntry.php";
+    require __DIR__ . "/env/Map.php";
 
 
     require __DIR__ . "/env/BaseArray.php";

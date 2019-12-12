@@ -36,10 +36,28 @@
         }
     };
 
+    $comparableItem4 = new class implements \Ataccama\Common\Utils\Comparator\Comparable
+    {
+        public function getValue(): int
+        {
+            return 5;
+        }
+    };
+
+    $comparableItem5 = new class implements \Ataccama\Common\Utils\Comparator\Comparable
+    {
+        public function getValue(): int
+        {
+            return 20;
+        }
+    };
+
     $array = [
         $comparableItem3,
         $comparableItem2,
-        $comparableItem1
+        $comparableItem1,
+        $comparableItem4,
+        $comparableItem5
     ];
 
     \Ataccama\Common\Utils\Comparator\Sorter::sort($array, $comparator);
@@ -48,4 +66,4 @@
 
     \Ataccama\Common\Utils\Comparator\Sorter::sort($array, $comparator, \Ataccama\Common\Utils\Comparator\Sorter::DESC);
 
-    Assert::same(10, $array[0]->getValue());
+    Assert::same(20, $array[0]->getValue());
