@@ -43,22 +43,35 @@
             }
         }
 
+        /**
+         * @return bool
+         */
         public function nextTick(): bool
+        {
+            $lastTick = $this->lastTick();
+
+            if ($lastTick->getTimestamp() <= DateTime::from("-" . $this->tickLength)
+                    ->getTimestamp()) {
+                return true;
+            }
+
+            return false;
+        }
+
+        /**
+         * @return DateTime
+         */
+        public function lastTick(): DateTime
         {
             $filename = self::$dataPath . "/clock_" . $this->getId() . ".json";
             if (file_exists($filename)) {
                 $file = file_get_contents($filename);
                 $state = json_decode($file);
-                $lastTick = DateTime::from($state->dt);
-                if ($lastTick->getTimestamp() < DateTime::from("-" . $this->tickLength)
-                        ->getTimestamp()) {
-                    return true;
-                }
 
-                return false;
+                return DateTime::from($state->dt);
             }
 
-            return true;
+            return DateTime::from("-" . $this->tickLength);
         }
 
         public function tick(): void
