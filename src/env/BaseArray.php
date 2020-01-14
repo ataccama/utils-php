@@ -121,14 +121,16 @@
             $this->items = [];
         }
 
-        public function remove($i)
+        public function remove($i, bool $reIndex = false)
         {
             $item = null;
 
             if (isset($this->items[$i])) {
                 $item = $this->items[$i];
                 unset($this->items[$i]);
-                $this->items = array_values($this->items);
+                if ($reIndex) {
+                    $this->items = array_values($this->items);
+                }
             }
 
             return $item;

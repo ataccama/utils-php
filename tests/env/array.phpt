@@ -82,4 +82,25 @@
 
     $array_2->remove(2);
 
-    Assert::same(1, $array_2->get(2));
+    Assert::count(5, $array_2);
+    Assert::same(null, $array_2->get(2));
+
+    $array_2->remove(0, true);
+
+    Assert::same(20, $array_2->get(0));
+
+    $str_array = new class extends \Ataccama\Common\Env\BaseArray {
+        public function add($o)
+        {
+            $this->items[$o] = $o . $o;
+        }
+    };
+
+    $str_array->add("str_1");
+    $str_array->add("str_2");
+    $str_array->add("str_3");
+
+    $str_array->remove("str_2");
+
+    Assert::count(2, $str_array);
+    Assert::same("str_3str_3", $str_array->get("str_3"));
