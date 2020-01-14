@@ -120,4 +120,17 @@
         {
             $this->items = [];
         }
+
+        public function remove($i)
+        {
+            $item = null;
+
+            if (isset($this->items[$i])) {
+                $item = $this->items[$i];
+                unset($this->items[$i]);
+                $this->items = array_values($this->items);
+            }
+
+            return $item;
+        }
     }

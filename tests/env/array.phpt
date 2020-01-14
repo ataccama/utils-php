@@ -6,36 +6,31 @@
 
     $array = new \Ataccama\Common\Env\BaseArray();
 
-    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable
-    {
+    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable {
         public function getValue(): int
         {
             return 5;
         }
     });
-    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable
-    {
+    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable {
         public function getValue(): int
         {
             return 1;
         }
     });
-    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable
-    {
+    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable {
         public function getValue(): int
         {
             return 1;
         }
     });
-    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable
-    {
+    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable {
         public function getValue(): int
         {
             return 40;
         }
     });
-    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable
-    {
+    $array->add(new class implements \Ataccama\Common\Utils\Comparator\Comparable {
         public function getValue(): int
         {
             return 10;
@@ -82,3 +77,9 @@
     $array_2->insert($array);
 
     Assert::count(6, $array_2);
+
+    Assert::same(30, $array_2->get(2));
+
+    $array_2->remove(2);
+
+    Assert::same(1, $array_2->get(2));
