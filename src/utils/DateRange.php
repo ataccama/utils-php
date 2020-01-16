@@ -9,6 +9,7 @@
     /**
      * Class DateRange
      * @package Ataccama\Common\Utils
+     * @property-read \DateInterval $dateInterval
      */
     class DateRange
     {
