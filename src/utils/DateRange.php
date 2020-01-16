@@ -7,12 +7,10 @@
 
 
     /**
-     * Class DateInterval
-     * @deprecated
+     * Class DateRange
      * @package Ataccama\Common\Utils
-     * @property-read \DateInterval $interval
      */
-    class DateInterval
+    class DateRange
     {
         use SmartObject;
 
@@ -36,7 +34,7 @@
         /**
          * @return \DateInterval
          */
-        public function getInterval(): \DateInterval
+        public function getDateInterval(): \DateInterval
         {
             return $this->from->diff($this->to);
         }
