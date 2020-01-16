@@ -67,7 +67,7 @@
                 return "";
             }
 
-            $i = $dr->getDateInterval();
+            $i = $dr->getInterval();
 
             $str = "";
 

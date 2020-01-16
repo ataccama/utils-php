@@ -9,7 +9,7 @@
     /**
      * Class DateRange
      * @package Ataccama\Common\Utils
-     * @property-read \DateInterval $dateInterval
+     * @property-read \DateInterval $interval
      */
     class DateRange
     {
@@ -35,7 +35,7 @@
         /**
          * @return \DateInterval
          */
-        public function getDateInterval(): \DateInterval
+        public function getInterval(): \DateInterval
         {
             return $this->from->diff($this->to);
         }
