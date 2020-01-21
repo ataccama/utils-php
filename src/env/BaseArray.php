@@ -135,4 +135,19 @@
 
             return $item;
         }
+
+        /**
+         * Returns pairs.
+         *
+         * @return PairArray
+         */
+        public function toPairs(): PairArray
+        {
+            $pairs = new PairArray();
+            foreach ($this->items as $key => $value) {
+                $pairs->add(new Pair($key, $value));
+            }
+
+            return $pairs;
+        }
     }

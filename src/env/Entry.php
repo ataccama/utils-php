@@ -35,6 +35,7 @@
         }
 
         /**
+         * @deprecated
          * @param IEntry[] $entries
          * @return BaseArray
          */

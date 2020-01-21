@@ -6,15 +6,15 @@
 
 
     /**
-     * Transforms DateTime|string into human readable text with "ago" at the end.
-     * For example: 34 minutes ago
-     *
      * Class Transformer
      * @package Ataccama\Common\Utils
      */
     class Transformer
     {
         /**
+         * Transforms DateTime|string into human readable text with "ago" at the end.
+         * For example: 34 minutes ago
+         *
          * @param null $dt
          * @return string
          */

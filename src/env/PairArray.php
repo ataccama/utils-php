@@ -62,4 +62,19 @@
 
             return $array;
         }
+
+        /**
+         * Returns an array of keys (IDs).
+         *
+         * @return EntryList
+         */
+        public function toEntryList(): EntryList
+        {
+            $entries = new EntryList();
+            foreach ($this as $pair) {
+                $entries->add(new Entry($pair->key));
+            }
+
+            return $entries;
+        }
     }
