@@ -14,3 +14,5 @@
     Assert::same("2 hours 5 minutes", \Ataccama\Common\Utils\Transformer::dtiToStr($dr));
 
     Assert::same(2, $dr->interval->h);
+
+    Assert::same((2 * 60 * 60) + (5 * 60), $dr->dTimestamp);

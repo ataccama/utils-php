@@ -10,6 +10,7 @@
      * Class DateRange
      * @package Ataccama\Common\Utils
      * @property-read \DateInterval $interval
+     * @property-read int           $dTimestamp
      */
     class DateRange
     {
@@ -38,5 +39,15 @@
         public function getInterval(): \DateInterval
         {
             return $this->from->diff($this->to);
+        }
+
+        /**
+         * Returns a difference between FROM and TO in seconds.
+         *
+         * @return int
+         */
+        public function getDTimestamp(): int
+        {
+            return $this->to->getTimestamp() - $this->from->getTimestamp();
         }
     }
