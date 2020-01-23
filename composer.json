@@ -2,7 +2,7 @@
   "name": "ataccama/utils-php",
   "license": "MIT",
   "description": "PHP classes which may help and save your time.",
-  "version": "2.0.31",
+  "version": "2.0.32",
   "type": "library",
   "require": {
     "php": ">= 7.2.0",
