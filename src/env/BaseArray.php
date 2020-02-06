@@ -12,7 +12,7 @@
      * Class BaseArray
      * @package Ataccama\Common\Env
      */
-    class BaseArray implements \Iterator, IArray, \Countable
+    class BaseArray implements \Iterator, IArray, \Countable, Pairable
     {
         protected $items = [];
 

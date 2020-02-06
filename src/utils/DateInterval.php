@@ -8,7 +8,7 @@
 
     /**
      * Class DateInterval
-     * @deprecated
+     * @deprecated Use a new class DateRange
      * @package Ataccama\Common\Utils
      * @property-read \DateInterval $interval
      */

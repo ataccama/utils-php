@@ -8,6 +8,9 @@
      */
     class DateTime extends \Nette\Utils\DateTime
     {
+        /**
+         * @return DateTime
+         */
         public static function now(): DateTime
         {
             return DateTime::from("now");

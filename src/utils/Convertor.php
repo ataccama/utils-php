@@ -8,7 +8,7 @@
      */
     class Convertor
     {
-        public static function toBase($num, int $b = 62)
+        public static function toBase(int $num, int $b = 62)
         {
             $base = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $r = $num % $b;
@@ -23,7 +23,7 @@
             return $res;
         }
 
-        public static function to10($num, int $b = 62)
+        public static function to10(int $num, int $b = 62)
         {
             $base = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $limit = strlen($num);
