@@ -3,10 +3,11 @@
     namespace Ataccama\Common\Env;
 
     /**
-     * Interface Storeable
+     * Interface IEntry
      * @package Ataccama\Common\Env
+     * @property-read $id
      */
-    interface Storeable extends Pairable
+    interface IEntry
     {
-
+        public function getId();
     }

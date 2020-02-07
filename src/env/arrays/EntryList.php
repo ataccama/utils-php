@@ -6,15 +6,17 @@
      * Class EntryList
      * @package Ataccama\Common\Env
      */
-    class EntryList extends BaseArray
+    class EntryList
     {
+        use TArray;
+
         /**
          * Adds IEntry to array.
          *
          * @param IEntry $entry
          * @return EntryList
          */
-        public function add($entry)
+        public function add(IEntry $entry)
         {
             $this->items[$entry->id] = $entry;
 

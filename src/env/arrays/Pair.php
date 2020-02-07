@@ -21,8 +21,13 @@
             $this->value = $value;
         }
 
-        public function toPair(): Pair
+        public function getKey()
         {
-            return $this;
+            return $this->key;
+        }
+
+        public function getValue()
+        {
+            return $this->value;
         }
     }
