@@ -27,6 +27,18 @@
         }
 
         /**
+         * @param string $id
+         * @param int    $limit
+         * @return Paginator
+         */
+        public function createPaginator(string $id, int $limit = 10): Paginator
+        {
+            $this->add((new Paginator())->setItemsPerPage($limit), $id);
+
+            return $this->{$id};
+        }
+
+        /**
          * @param $id
          * @return Paginator
          * @throws NotDefined
