@@ -28,7 +28,7 @@
         public function add($pair): PairArray
         {
             if ($pair instanceof IPair) {
-                $this->items[$pair->getKey()] = $pair;
+                $this->items[] = $pair;
             }
 
             return $this;
@@ -43,24 +43,28 @@
         }
 
         /**
-         * @param $key
+         * Returns a pair by index.
+         *
+         * @param $i
          * @return IPair|null
          */
-        public function get($key): ?IPair
+        public function get($i): ?IPair
         {
-            if (isset($this->items[$key])) {
-                return parent::get($key);
+            if (isset($this->items[$i])) {
+                return parent::get($i);
             }
 
             return null;
         }
 
         /**
+         * Try to return a pair by its key
+         * Returns first occurrence!
+         *
          * @param string $key
          * @return IPair|null
-         * @deprecated
          */
-        public function tryToGetPairByKey(string $key): ?IPair
+        public function tryToGetByKey(string $key): ?IPair
         {
             foreach ($this as $pair) {
                 if ($pair->getKey() == $key) {
@@ -71,6 +75,12 @@
             return null;
         }
 
+        /**
+         * Returns an unique array.
+         * Duplicates will be overwritten.
+         *
+         * @return array
+         */
         public function toArray(): array
         {
             $array = [];

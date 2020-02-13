@@ -3,6 +3,7 @@
     namespace Ataccama\Common\Env\Arrays;
 
     use Ataccama\Common\Env\Interfaces\IStringPair;
+    use Ataccama\Common\Env\IPair;
     use Ataccama\Common\Env\PairArray;
 
 

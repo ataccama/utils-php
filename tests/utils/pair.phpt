@@ -17,7 +17,7 @@
 
     Assert::same(2, count($pairArray));
 
-    Assert::same("xyz", $pairArray->get("abc")->value);
+    Assert::same("xyz", $pairArray->tryToGetByKey("abc")->value);
 
     // toArray() unified
     Assert::same(1, count($pairArray->toArray()));
