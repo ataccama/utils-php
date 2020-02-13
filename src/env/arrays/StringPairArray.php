@@ -33,7 +33,7 @@
          * @param string $key
          * @return IStringPair|null
          */
-        public function get($key): ?IStringPair
+        public function get($key): ?IPair
         {
             if (isset($this->items[$key])) {
                 return $this->items[$key];
@@ -55,9 +55,9 @@
 
         /**
          * @param IStringPair $pair
-         * @return StringPairArray
+         * @return PairArray
          */
-        public function add($pair): StringPairArray
+        public function add($pair): PairArray
         {
             $this->items[$pair->getKey()] = $pair;
 
@@ -67,7 +67,7 @@
         /**
          * @return IStringPair
          */
-        public function current(): IStringPair
+        public function current(): IPair
         {
             return current($this->items);
         }
