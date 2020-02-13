@@ -23,9 +23,9 @@
             return $this;
         }
 
-        public function empty(): void
+        public function empty(): bool
         {
-            $this->items = [];
+            return $this->count() == 0;
         }
 
         public function current()
