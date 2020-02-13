@@ -12,6 +12,7 @@
      */
     class PaginatorList
     {
+        /** @var IdentifiedPaginator[] */
         private $paginators = [];
 
         /**
@@ -21,7 +22,7 @@
          */
         public function add(Paginator $paginator, string $id): PaginatorList
         {
-            $this->paginators[$id] = $paginator;
+            $this->paginators[$id] = IdentifiedPaginator::create($id, $paginator);
 
             return $this;
         }
@@ -29,18 +30,21 @@
         /**
          * @param string $id
          * @param int    $limit
-         * @return Paginator
+         * @return IdentifiedPaginator
          */
-        public function createPaginator(string $id, int $limit = 10): Paginator
+        public function createPaginator(string $id, int $limit = 10): IdentifiedPaginator
         {
-            $this->add((new Paginator())->setItemsPerPage($limit), $id);
+            $paginator = new IdentifiedPaginator($id);
+            $paginator->setItemsPerPage($limit);
+
+            $this->add($paginator, $id);
 
             return $this->{$id};
         }
 
         /**
          * @param $id
-         * @return Paginator
+         * @return IdentifiedPaginator
          * @throws NotDefined
          */
         public function __get($id)
@@ -54,10 +58,10 @@
 
         /**
          * @param string $id
-         * @return Paginator
+         * @return IdentifiedPaginator
          * @throws NotDefined
          */
-        public function get(string $id): Paginator
+        public function get(string $id): IdentifiedPaginator
         {
             return $this->__get($id);
         }
