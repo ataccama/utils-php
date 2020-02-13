@@ -14,7 +14,8 @@
      */
     class BaseArray implements \Iterator, IArray, \Countable
     {
-        protected array $items = [];
+        /** @var array */
+        protected $items = [];
 
         public function add($o)
         {
