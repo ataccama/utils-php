@@ -28,4 +28,18 @@
         {
             return parent::current();
         }
+
+        /**
+         * @return int[]|string[]
+         */
+        public function toIds(): array
+        {
+            $array = [];
+
+            foreach ($this as $entry) {
+                $array[] = $entry->id;
+            }
+
+            return $array;
+        }
     }
