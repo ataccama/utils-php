@@ -12,10 +12,8 @@
         /**
          * Flag
          * Uses in __toString() method
-         *
-         * @var bool
          */
-        public $showSeconds = true;
+        public bool $showSeconds = true;
 
         public function __toString(): string
         {
