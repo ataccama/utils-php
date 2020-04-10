@@ -23,3 +23,16 @@
     Assert::same(2, $dr->interval->h);
 
     Assert::same((2 * 60 * 60) + (5 * 60), $dr->dTimestamp);
+
+    $di = \Ataccama\Common\Utils\DT\DateInterval::createFromSeconds(100);
+    Assert::same(1, $di->i);
+    Assert::same(40, $di->s);
+    Assert::same("1 minute 40 seconds",$di->__toString());
+    $di->showSeconds = false;
+    Assert::same("1 minute",$di->__toString());
+
+    $di = \Ataccama\Common\Utils\DT\DateInterval::createFromSeconds(3600 * 25 + 130);
+    Assert::same(1, $di->d);
+    Assert::same(1, $di->h);
+    Assert::same(2, $di->i);
+    Assert::same(10, $di->s);
