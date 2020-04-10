@@ -60,38 +60,17 @@
          *
          * @param DateRange|null $dr
          * @return string
+         * @deprecated
          */
         public static function dtiToStr(DateRange $dr = null): string
         {
             if (!isset($dr)) {
                 return "";
             }
-
-            $i = $dr->getInterval();
-
-            $str = "";
-
-            if ($i->y > 0) {
-                $str .= "$i->y year" . ($i->y > 1 ? "s" : "") . " ";
+            try {
+                return (\Ataccama\Common\Utils\DT\DateInterval::create($dr->getInterval()))->__toString();
+            } catch (\Throwable $t) {
+                return "";
             }
-            if ($i->m > 0) {
-                $str .= "$i->m month" . ($i->m > 1 ? "s" : "") . " ";
-            }
-            if ($i->d > 0) {
-                $str .= "$i->d day" . ($i->d > 1 ? "s" : "") . " ";
-            }
-            if ($i->h > 0) {
-                $str .= "$i->h hour" . ($i->h > 1 ? "s" : "") . " ";
-            }
-            if ($i->i > 0) {
-                $str .= "$i->i minute" . ($i->i > 1 ? "s" : "") . " ";
-            }
-            if (empty($str)) {
-                if ($i->s > 0) {
-                    $str .= "$i->s second" . ($i->s > 1 ? "s" : "") . " ";
-                }
-            }
-
-            return trim($str);
         }
     }

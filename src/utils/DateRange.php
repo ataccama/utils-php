@@ -34,11 +34,17 @@
         }
 
         /**
-         * @return \DateInterval
+         * @return \Ataccama\Common\Utils\DT\DateInterval
+         * @throws \Exception
          */
-        public function getInterval(): \DateInterval
+        public function getInterval(): \Ataccama\Common\Utils\DT\DateInterval
         {
-            return $this->from->diff($this->to);
+            $d = $this->from->diff($this->to);
+            if ($d !== false) {
+                return \Ataccama\Common\Utils\DT\DateInterval::create($d);
+            }
+
+            throw new \Exception("Difference between two dates is not possible");
         }
 
         /**
