@@ -7,6 +7,9 @@
 
     /**
      * Class Entry
+     *
+     * @deprecated Use IntegerId or StringId
+     *
      * @package Ataccama\Common\Env
      * @property-read mixed $id
      */
