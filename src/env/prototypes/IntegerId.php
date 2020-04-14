@@ -17,8 +17,7 @@
     {
         use SmartObject;
 
-        /** @var int */
-        protected $id;
+        protected int $id;
 
         public function getId(): int
         {
