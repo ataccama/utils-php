@@ -17,7 +17,7 @@
          * @param string $key
          * @param string $value
          */
-        public function __construct(string $key, string $value)
+        public function __construct(string $key, ?string $value)
         {
             parent::__construct($key, $value);
         }
@@ -27,7 +27,7 @@
             return parent::getKey();
         }
 
-        public function getValue(): string
+        public function getValue(): ?string
         {
             return parent::getValue();
         }

@@ -13,5 +13,5 @@
     {
         public function getKey(): string;
 
-        public function getValue(): string;
+        public function getValue(): ?string;
     }

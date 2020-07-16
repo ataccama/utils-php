@@ -27,12 +27,13 @@
     $stringPairs = new Env\Arrays\StringPairArray([
         new Env\Arrays\StringPair("A", "AAA"),
         new Env\Arrays\StringPair("B", "BBB"),
-        new Env\Arrays\StringPair("C", "CCC")
+        new Env\Arrays\StringPair("C", "CCC"),
+        new Env\Arrays\StringPair("E", null)
     ]);
 
     $stringPairs->add(new Env\Arrays\StringPair("D", "DDD"));
 
-    Assert::count(4, $stringPairs);
+    Assert::count(5, $stringPairs);
 
     Assert::same("BBB", $stringPairs->get("B")->getValue());
     Assert::same("DDD", $stringPairs->get("D")->getValue());
