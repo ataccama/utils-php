@@ -12,7 +12,7 @@
          * @param             $value
          * @param string|null $key
          * @param bool        $overwrite
-         * @return $this|BaseArray
+         * @return Map
          */
         public function add($value, string $key = null, bool $overwrite = true)
         {
@@ -34,7 +34,7 @@
         /**
          * @param      $map
          * @param bool $overwrite
-         * @return $this|BaseArray
+         * @return Map
          */
         public function insert($map, bool $overwrite = true)
         {

@@ -25,3 +25,5 @@
     \Tester\Assert::exception(function () use ($paginators) {
         $paginators->get('xxx')->itemCount;
     }, \Ataccama\Common\Exceptions\NotDefined::class);
+
+    \Tester\Assert::same('pid', $paginators->get('pid')->getId());

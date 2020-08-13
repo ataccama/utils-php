@@ -12,8 +12,9 @@
      * Class BaseArray
      * @package Ataccama\Common\Env
      */
-    class BaseArray implements \Iterator, IArray, \Countable, Pairable
+    class BaseArray implements \Iterator, IArray, \Countable
     {
+        /** @var array */
         protected $items = [];
 
         public function add($o)
@@ -23,9 +24,9 @@
             return $this;
         }
 
-        public function empty(): void
+        public function empty(): bool
         {
-            $this->items = [];
+            return $this->count() == 0;
         }
 
         public function current()
@@ -83,13 +84,6 @@
             return isset($this->items[$i]);
         }
 
-        /**
-         * Array items have to implement Comparable interface or function will return FALSE.
-         *
-         * @param bool             $type
-         * @param IComparator|null $comparator
-         * @return BaseArray|bool
-         */
         public function sort(bool $type = Sorter::ASC, IComparator $comparator = null)
         {
             if (!isset($comparator)) {
@@ -134,20 +128,5 @@
             }
 
             return $item;
-        }
-
-        /**
-         * Returns pairs.
-         *
-         * @return PairArray
-         */
-        public function toPairs(): PairArray
-        {
-            $pairs = new PairArray();
-            foreach ($this->items as $key => $value) {
-                $pairs->add(new Pair($key, $value));
-            }
-
-            return $pairs;
         }
     }

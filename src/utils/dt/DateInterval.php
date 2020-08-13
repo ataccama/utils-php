@@ -2,12 +2,21 @@
 
     namespace Ataccama\Common\Utils\DT;
 
+
     /**
      * Class DateInterval
      * @package Ataccama\Common\Utils\DT
      */
     class DateInterval extends \DateInterval
     {
+        /**
+         * Flag
+         * Uses in __toString() method
+         *
+         * @var bool
+         */
+        public $showSeconds = true;
+
         public function __toString(): string
         {
             $str = "";
@@ -27,7 +36,7 @@
             if ($this->i > 0) {
                 $str .= "$this->i minute" . ($this->i > 1 ? "s" : "") . " ";
             }
-            if (empty($str)) {
+            if (empty($str) || $this->showSeconds) {
                 if ($this->s > 0) {
                     $str .= "$this->s second" . ($this->s > 1 ? "s" : "") . " ";
                 }
@@ -44,5 +53,26 @@
         public static function create(\DateInterval $di): DateInterval
         {
             return new DateInterval($di->format("P%yY%mM%dDT%HH%IM%SS"));
+        }
+
+        /**
+         * Returns DateInterval contains only days, hours, minutes and seconds. Any months neither years.
+         *
+         * @param int $seconds
+         * @return DateInterval
+         * @throws \Exception
+         */
+        public static function createFromSeconds(int $seconds): DateInterval
+        {
+            $days = (int) ($seconds / (60 * 60 * 24));
+            $seconds = round($seconds % (60 * 60 * 24));
+
+            $hours = (int) ($seconds / (60 * 60));
+            $seconds = round($seconds % (60 * 60));
+
+            $minutes = (int) ($seconds / 60);
+            $seconds = round($seconds % 60);
+
+            return new DateInterval("P$days" . "DT$hours" . "H" . $minutes . "M" . $seconds . "S");
         }
     }

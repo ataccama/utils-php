@@ -3,10 +3,10 @@
     namespace Ataccama\Common\Env;
 
     /**
-     * Interface IPair
+     * Interface IPairs
      * @package Ataccama\Common\Env
      */
-    interface IPair
+    interface IPairs
     {
-        public function toPair(): Pair;
+        public function toPairs(): PairArray;
     }

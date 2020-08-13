@@ -9,7 +9,7 @@
     interface Pairable
     {
         /**
-         * @return PairArray
+         * @return IPair
          */
-        public function toPairs(): PairArray;
+        public function toPair(): IPair;
     }
