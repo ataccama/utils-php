@@ -78,5 +78,13 @@
             return $this->fullname;
         }
 
-
+        /**
+         * @param string $firstname
+         * @param string $lastname
+         * @return Name
+         */
+        public static function create(string $firstname, string $lastname): Name
+        {
+            return new Name($firstname . " " . $lastname);
+        }
     }
