@@ -22,7 +22,7 @@
             parent::__construct($name, $value);
         }
 
-        public function getValue(): string
+        public function getValue(): object
         {
             return parent::getValue();
         }
