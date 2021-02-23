@@ -5,7 +5,6 @@
     /**
      * Class DT
      * @package Ataccama\Common\Utils
-     * @deprecated
      */
     final class DT
     {
