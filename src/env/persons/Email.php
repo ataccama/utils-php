@@ -3,6 +3,7 @@
     namespace Ataccama\Common\Env;
 
     use Nette\SmartObject;
+    use Nette\Utils\Strings;
 
 
     /**
@@ -13,6 +14,7 @@
     class Email
     {
         use SmartObject;
+
 
         /** @var string */
         public $definition;
@@ -45,5 +47,35 @@
             return $this->definition;
         }
 
+        /**
+         * @param string $separator
+         * @return Name|null
+         */
+        public function extractName(string $separator = "."): ?Name
+        {
+            $username = $this->getUsername();
+            if (!empty($username)) {
+                $extractedNameFromEmail = explode($separator, $username);
+                $names = [];
+                foreach ($extractedNameFromEmail as $name) {
+                    $names[] = Strings::firstUpper($name);
+                }
+                if (count($names) > 0) {
+                    return new \Ataccama\Common\Env\Name(implode(" ", $names));
+                }
+            }
 
+            return null;
+        }
+
+        public function getUsername(): ?string
+        {
+            $exploded = explode("@", $this->definition);
+
+            if (isset($exploded[0])) {
+                return $exploded[0];
+            }
+
+            return null;
+        }
     }
