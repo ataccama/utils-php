@@ -19,7 +19,7 @@
         public $cache = true;
 
         /** @var Cache */
-        private $cachedStorage;
+        protected $cachedStorage;
 
         /**
          * DataStorage constructor.
