@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Cache;
 
@@ -7,25 +8,25 @@
 
 
     /**
-     * Class EntryKey
+     * Class StringKey
      * @package Ataccama\Common\Utils\Cache
-     * @property-read mixed  $id
+     * @property-read string $id
      * @property-read string $prefix
      */
-    abstract class EntryKey implements IKey
+    abstract class StringKey implements IKey
     {
         use SmartObject;
 
 
-        protected $id;
+        protected string $id;
 
         /**
          * ContentKey constructor.
-         * @param IdentifiableByString $entry
+         * @param IdentifiableByString $object
          */
-        public function __construct(IdentifiableByString $entry)
+        public function __construct(IdentifiableByString $object)
         {
-            $this->id = $entry->id;
+            $this->id = $object->id;
         }
 
         /**

@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Cache;
 
@@ -8,7 +9,7 @@
     /**
      * Class Key
      * @package       Ataccama\Common\Utils\Cache
-     * @property-read mixed   $id
+     * @property-read string  $id
      * @property-read ?string $prefix
      */
     class Key implements IKey
