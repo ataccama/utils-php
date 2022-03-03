@@ -9,12 +9,12 @@
     class Map extends BaseArray
     {
         /**
-         * @param             $value
+         * @param mixed       $value
          * @param string|null $key
          * @param bool        $overwrite
          * @return Map
          */
-        public function add($value, string $key = null, bool $overwrite = true): self
+        public function add(mixed $value, string $key = null, bool $overwrite = true): self
         {
             if (isset($key)) {
                 if ($overwrite) {
@@ -46,10 +46,10 @@
         }
 
         /**
-         * @param $key
+         * @param int|string $key
          * @return mixed
          */
-        public function get($key): mixed
+        public function get(int|string $key): mixed
         {
             return parent::get($key);
         }

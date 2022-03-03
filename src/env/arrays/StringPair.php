@@ -15,7 +15,7 @@
         /**
          * StringPair constructor.
          * @param string $key
-         * @param string $value
+         * @param string|null $value
          */
         public function __construct(string $key, ?string $value)
         {

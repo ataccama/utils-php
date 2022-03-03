@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -25,7 +26,7 @@
          * @param IPair $pair
          * @return PairArray
          */
-        public function add($pair): PairArray
+        public function add(mixed $pair): PairArray
         {
             if ($pair instanceof IPair) {
                 $this->items[] = $pair;
@@ -45,10 +46,10 @@
         /**
          * Returns a pair by index.
          *
-         * @param $i
+         * @param int|string $i
          * @return IPair|null
          */
-        public function get($i): ?IPair
+        public function get(int|string $i): ?IPair
         {
             if (isset($this->items[$i])) {
                 return parent::get($i);
@@ -79,7 +80,7 @@
          * Returns an unique array.
          * Duplicates will be overwritten.
          *
-         * @return array
+         * @return mixed[]
          */
         public function toArray(): array
         {
@@ -95,15 +96,15 @@
         /**
          * Returns an array of keys (IDs).
          *
-         * @return EntryList
+         * @return array
          */
-        public function toEntryList(): EntryList
+        public function listKeys(): array
         {
-            $entries = new EntryList();
+            $keys = [];
             foreach ($this as $pair) {
-                $entries->add(new Entry($pair->getKey()));
+                $keys[] = $pair->getKey();
             }
 
-            return $entries;
+            return $keys;
         }
     }

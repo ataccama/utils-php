@@ -16,7 +16,7 @@
     {
         protected array $items = [];
 
-        public function add($o): self
+        public function add(mixed $o): self
         {
             $this->items[] = $o;
 
@@ -69,7 +69,7 @@
             return count($this->items);
         }
 
-        public function get($i): mixed
+        public function get(int|string $i): mixed
         {
             if (isset($this->items[$i])) {
                 return $this->items[$i];
@@ -106,7 +106,7 @@
             return $this;
         }
 
-        public function insert($baseArray): self
+        public function insert(iterable $baseArray): self
         {
             foreach ($baseArray as $item) {
                 $this->add($item);
@@ -120,7 +120,7 @@
             $this->items = [];
         }
 
-        public function remove($i, bool $reIndex = false): mixed
+        public function remove(int|string $i, bool $reIndex = false): mixed
         {
             $item = null;
 

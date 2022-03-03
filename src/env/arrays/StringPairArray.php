@@ -33,10 +33,10 @@
          * @param string $key
          * @return IStringPair|null
          */
-        public function get($key): ?IPair
+        public function get(int|string $key): ?IPair
         {
-            if (isset($this->items[$key])) {
-                return $this->items[$key];
+            if (isset($this->items[(string) $key])) {
+                return $this->items[(string) $key];
             }
 
             return null;
@@ -46,7 +46,7 @@
          * @param StringPairArray $stringPairArray
          * @return StringPairArray
          */
-        public function insert($stringPairArray): self
+        public function insert(iterable $stringPairArray): self
         {
             parent::insert($stringPairArray);
 
@@ -57,7 +57,7 @@
          * @param IStringPair $pair
          * @return PairArray
          */
-        public function add($pair): PairArray
+        public function add(mixed $pair): PairArray
         {
             $this->items[$pair->getKey()] = $pair;
 
