@@ -29,7 +29,7 @@
             return $this->count() == 0;
         }
 
-        public function current()
+        public function current(): mixed
         {
             return current($this->items);
         }
@@ -39,7 +39,7 @@
             next($this->items);
         }
 
-        public function key()
+        public function key(): null|int|string
         {
             return key($this->items);
         }
