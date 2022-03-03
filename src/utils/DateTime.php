@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils;
 
@@ -10,6 +11,7 @@
     {
         /**
          * @return DateTime
+         * @throws \Exception
          */
         public static function now(): DateTime
         {

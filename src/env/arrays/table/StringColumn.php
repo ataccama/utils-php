@@ -9,9 +9,6 @@
      */
     class StringColumn extends NullableStringColumn
     {
-        /** @var string */
-        public $value;
-
         /**
          * StringColumn constructor.
          * @param string $name

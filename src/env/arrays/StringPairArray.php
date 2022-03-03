@@ -46,7 +46,7 @@
          * @param StringPairArray $stringPairArray
          * @return StringPairArray
          */
-        public function insert($stringPairArray)
+        public function insert($stringPairArray): self
         {
             parent::insert($stringPairArray);
 

@@ -9,20 +9,17 @@
      */
     class JsonColumn extends NullableJsonColumn
     {
-        /** @var string */
-        public $value;
-
         /**
          * JsonColumn constructor.
          * @param string $name
-         * @param object $value
+         * @param string $value
          */
-        public function __construct(string $name, object $value)
+        public function __construct(string $name, string $value)
         {
             parent::__construct($name, $value);
         }
 
-        public function getValue(): object
+        public function getValue(): string
         {
             return parent::getValue();
         }

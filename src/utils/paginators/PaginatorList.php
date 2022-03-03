@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Paginators;
 
@@ -13,7 +14,7 @@
     class PaginatorList
     {
         /** @var IdentifiedPaginator[] */
-        private $paginators = [];
+        private array $paginators = [];
 
         /**
          * @param Paginator $paginator

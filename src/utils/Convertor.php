@@ -2,13 +2,14 @@
 
     namespace Ataccama\Common\Utils;
 
+
     /**
      * Class Convertor
      * @package Ataccama\Common\Utils
      */
     class Convertor
     {
-        public static function toBase(int $num, int $b = 62)
+        public static function toBase(int $num, int $b = 62): string
         {
             $base = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $r = $num % $b;
@@ -23,7 +24,7 @@
             return $res;
         }
 
-        public static function to10(int $num, int $b = 62)
+        public static function to10(int $num, int $b = 62): int
         {
             $base = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $limit = strlen($num);
@@ -32,15 +33,15 @@
                 $res = $b * $res + strpos($base, $num[$i]);
             }
 
-            return $res;
+            return (int) $res;
         }
 
-        public static function base64url_encode($data)
+        public static function base64url_encode($data): string
         {
             return rtrim(strtr(base64_encode($data), '+/', '-_'), '=');
         }
 
-        public static function base64url_decode($data)
+        public static function base64url_decode($data): string
         {
             return base64_decode(str_pad(strtr($data, '-_', '+/'), strlen($data) % 4, '=', STR_PAD_RIGHT));
         }

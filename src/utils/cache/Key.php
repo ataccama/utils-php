@@ -8,30 +8,32 @@
     /**
      * Class Key
      * @package       Ataccama\Common\Utils\Cache
-     * @property-read mixed $id
+     * @property-read mixed   $id
      * @property-read ?string $prefix
      */
     class Key implements IKey
     {
         use SmartObject;
 
-        private $id, $prefix;
+
+        private string $id;
+        public ?string $prefix;
 
         /**
          * Key constructor.
          * @param $id
          * @param $prefix
          */
-        public function __construct($id, $prefix = null)
+        public function __construct(string $id, ?string $prefix = null)
         {
             $this->id = $id;
             $this->prefix = $prefix;
         }
 
         /**
-         * @return mixed
+         * @return string
          */
-        public function getId()
+        public function getId(): string
         {
             return $this->id;
         }

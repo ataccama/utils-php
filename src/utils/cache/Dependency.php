@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Cache;
 
@@ -14,11 +15,11 @@
     {
         use SmartObject;
 
-        /** @var IKey */
-        private $key;
+
+        private IKey $key;
 
         /** @var Dependency[] */
-        private $parents = [];
+        private array $parents = [];
 
         /**
          * Dependency constructor.
@@ -39,7 +40,7 @@
             unset($this->parents[$dependency->getId()]);
         }
 
-        public function getId()
+        public function getId(): string
         {
             return DataStorage::getKey($this->key);
         }

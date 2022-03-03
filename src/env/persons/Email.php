@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -16,8 +17,7 @@
         use SmartObject;
 
 
-        /** @var string */
-        public $definition;
+        public string $definition;
 
         /**
          * Email constructor.
@@ -42,7 +42,7 @@
             return null;
         }
 
-        public function __toString()
+        public function __toString(): string
         {
             return $this->definition;
         }

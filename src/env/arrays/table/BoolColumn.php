@@ -3,15 +3,13 @@
 
     namespace Ataccama\Common\Env;
 
+
     /**
      * Class BoolColumn
      * @package Ataccama\Common\Env
      */
     class BoolColumn extends NullableBoolColumn
     {
-        /** @var bool */
-        public $value;
-
         /**
          * BoolColumn constructor.
          * @param string $name

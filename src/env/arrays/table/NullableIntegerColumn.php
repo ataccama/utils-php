@@ -12,13 +12,10 @@
      */
     class NullableIntegerColumn extends Column
     {
-        /** @var int|null */
-        public $value;
-
         /**
          * IntegerColumn constructor.
          * @param string $name
-         * @param int    $value
+         * @param int|null    $value
          */
         public function __construct(string $name, ?int $value = null)
         {

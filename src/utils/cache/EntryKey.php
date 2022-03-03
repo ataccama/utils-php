@@ -2,7 +2,7 @@
 
     namespace Ataccama\Common\Utils\Cache;
 
-    use Ataccama\Common\Env\IEntry;
+    use Ataccama\Common\Interfaces\IdentifiableByString;
     use Nette\SmartObject;
 
 
@@ -16,22 +16,22 @@
     {
         use SmartObject;
 
-        /** @var mixed */
+
         protected $id;
 
         /**
          * ContentKey constructor.
-         * @param IEntry $entry
+         * @param IdentifiableByString $entry
          */
-        public function __construct(IEntry $entry)
+        public function __construct(IdentifiableByString $entry)
         {
             $this->id = $entry->id;
         }
 
         /**
-         * @return mixed
+         * @return string
          */
-        public function getId()
+        public function getId(): string
         {
             return $this->id;
         }

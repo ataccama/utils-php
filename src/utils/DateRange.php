@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils;
 
@@ -16,16 +17,14 @@
     {
         use SmartObject;
 
-        /** @var DateTime */
-        public $from;
 
-        /** @var DateTime|null */
-        public $to;
+        public DateTime $from;
+        public ?DateTime $to;
 
         /**
          * DateInterval constructor.
-         * @param DateTime $from
-         * @param DateTime $to
+         * @param DateTime      $from
+         * @param DateTime|null $to
          */
         public function __construct(DateTime $from, DateTime $to = null)
         {

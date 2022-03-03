@@ -1,26 +1,27 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
+
+    use Ataccama\Common\Env\Prototypes\StringId;
+
 
     /**
      * Class Person
      * @package Ataccama\Common\Env
      */
-    class Person extends Entry
+    class Person extends StringId
     {
-        /** @var Name */
-        public $name;
-
-        /** @var Email */
-        public $email;
+        public Name $name;
+        public Email $email;
 
         /**
          * Person constructor.
-         * @param mixed $id
+         * @param string $id
          * @param Name  $name
          * @param Email $email
          */
-        public function __construct($id, Name $name, Email $email)
+        public function __construct(string $id, Name $name, Email $email)
         {
             parent::__construct($id);
             $this->email = $email;

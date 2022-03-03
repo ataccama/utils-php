@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Cron;
 
@@ -13,10 +14,10 @@
     class Cron
     {
         /** @var ITask[] */
-        private $tasks = [];
+        private array $tasks = [];
 
         /** @var Messenger */
-        public $messenger;
+        public Messenger $messenger;
 
         /**
          * Cron constructor.

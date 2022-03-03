@@ -2,6 +2,9 @@
 
     namespace Ataccama\Common\Env;
 
+    use Ataccama\Common\Interfaces\IdentifiableByString;
+
+
     /**
      * Class EntryList
      * @package Ataccama\Common\Env
@@ -11,10 +14,10 @@
         /**
          * Adds IEntry to array.
          *
-         * @param IEntry $entry
+         * @param IdentifiableByString $entry
          * @return EntryList
          */
-        public function add($entry)
+        public function add($entry): self
         {
             $this->items[$entry->id] = $entry;
 
@@ -22,15 +25,15 @@
         }
 
         /**
-         * @return IEntry
+         * @return IdentifiableByString
          */
-        public function current(): IEntry
+        public function current(): IdentifiableByString
         {
             return parent::current();
         }
 
         /**
-         * @return int[]|string[]
+         * @return string[]
          */
         public function toIds(): array
         {

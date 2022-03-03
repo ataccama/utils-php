@@ -3,26 +3,24 @@
 
     namespace Ataccama\Common\Env;
 
+
     /**
      * Class NullableJsonColumn
      * @package Ataccama\Common\Env
      */
     class NullableJsonColumn extends Column
     {
-        /** @var string|null */
-        public $value;
-
         /**
-         * NullableStringColumn constructor.
+         * NullableJsonColumn constructor.
          * @param string      $name
-         * @param object|null $value
+         * @param string|null $value
          */
-        public function __construct(string $name, ?object $value = null)
+        public function __construct(string $name, ?string $value = null)
         {
             parent::__construct($name, $value);
         }
 
-        public function getValue(): ?object
+        public function getValue(): ?string
         {
             return parent::getValue();
         }

@@ -1,8 +1,9 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Paginators;
 
-    use Ataccama\Common\Env\IEntry;
+    use Ataccama\Common\Interfaces\IdentifiableByString;
     use Nette\Utils\Paginator;
 
 
@@ -11,10 +12,9 @@
      * @package Ataccama\Common\Utils\Paginators
      * @property-read string $id
      */
-    class IdentifiedPaginator extends Paginator implements IEntry
+    class IdentifiedPaginator extends Paginator implements IdentifiableByString
     {
-        /** @var string */
-        protected $id;
+        protected string $id;
 
         /**
          * IdentifiedPaginator constructor.
@@ -28,7 +28,7 @@
         /**
          * @return string
          */
-        public function getId()
+        public function getId(): string
         {
             return $this->id;
         }

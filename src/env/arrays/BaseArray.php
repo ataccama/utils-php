@@ -14,10 +14,9 @@
      */
     class BaseArray implements \Iterator, IArray, \Countable
     {
-        /** @var array */
-        protected $items = [];
+        protected array $items = [];
 
-        public function add($o)
+        public function add($o): self
         {
             $this->items[] = $o;
 
@@ -29,7 +28,7 @@
             return $this->count() == 0;
         }
 
-        public function current()
+        public function current(): mixed
         {
             return current($this->items);
         }
@@ -39,7 +38,7 @@
             next($this->items);
         }
 
-        public function key()
+        public function key(): null|int|string
         {
             return key($this->items);
         }
@@ -70,7 +69,7 @@
             return count($this->items);
         }
 
-        public function get($i)
+        public function get($i): mixed
         {
             if (isset($this->items[$i])) {
                 return $this->items[$i];
@@ -79,12 +78,18 @@
             return null;
         }
 
-        public function __isset(string $i)
+        public function __isset(string $i): bool
         {
             return isset($this->items[$i]);
         }
 
-        public function sort(bool $type = Sorter::ASC, IComparator $comparator = null)
+        /**
+         * @param bool             $type
+         * @param IComparator|null $comparator
+         * @return $this
+         * @throws \Exception
+         */
+        public function sort(bool $type = Sorter::ASC, IComparator $comparator = null): self
         {
             if (!isset($comparator)) {
                 $comparator = new Comparator();
@@ -92,7 +97,7 @@
 
             foreach ($this->items as $item) {
                 if (!($item instanceof Comparable)) {
-                    return false;
+                    throw new \Exception("Item must implements interface Comparable.");
                 }
             }
 
@@ -101,7 +106,7 @@
             return $this;
         }
 
-        public function insert($baseArray)
+        public function insert($baseArray): self
         {
             foreach ($baseArray as $item) {
                 $this->add($item);
@@ -115,7 +120,7 @@
             $this->items = [];
         }
 
-        public function remove($i, bool $reIndex = false)
+        public function remove($i, bool $reIndex = false): mixed
         {
             $item = null;
 

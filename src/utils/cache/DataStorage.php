@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Cache;
 
@@ -12,14 +13,9 @@
      */
     class DataStorage
     {
-        /** @var array */
-        protected $objects = [];
-
-        /** @var bool */
-        public $cache = true;
-
-        /** @var Cache */
-        private $cachedStorage;
+        protected array $objects = [];
+        public bool $cache = true;
+        private Cache $cachedStorage;
 
         /**
          * DataStorage constructor.
@@ -40,10 +36,10 @@
          * Returns the stored (and cached) object under the $key.
          *
          * @param IKey $key
-         * @return mixed|null
+         * @return mixed
          * @throws \Throwable
          */
-        public function get(IKey $key)
+        public function get(IKey $key): mixed
         {
             $key = self::getKey($key);
 
@@ -76,13 +72,13 @@
          * Adds object to data storage and cached it.
          *
          * @param IKey   $key
-         * @param        $o
+         * @param mixed  $o
          * @param string $expireIn
          * @param bool   $cacheSliding
          * @return mixed
          * @throws \Throwable
          */
-        public function add(IKey $key, $o, $expireIn = '2 months', $cacheSliding = true)
+        public function add(IKey $key, mixed $o, $expireIn = '2 months', $cacheSliding = true): mixed
         {
             $key = self::getKey($key);
 

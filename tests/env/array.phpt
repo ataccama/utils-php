@@ -68,7 +68,9 @@
     $array->add(2);
     $array->add(3);
 
-    Assert::same(false, $array->sort());
+    Assert::error(function()use($array){
+        $array->sort();
+    },Exception::class);
 
     $array_2 = new \Ataccama\Common\Env\BaseArray();
     $array_2->add(10)
@@ -90,9 +92,10 @@
     Assert::same(20, $array_2->get(0));
 
     $str_array = new class extends \Ataccama\Common\Env\BaseArray {
-        public function add($o)
+        public function add($o): \Ataccama\Common\Env\BaseArray
         {
             $this->items[$o] = $o . $o;
+            return $this;
         }
     };
 

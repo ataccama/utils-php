@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Messenger;
 
@@ -18,13 +19,16 @@
     {
         use SmartObject;
 
+
         /**
          * @param Message $message
+         * @return Messenger
          */
-        public function add($message)
+        public function add($message): self
         {
             parent::add($message);
 
+            return $this;
         }
 
         /**

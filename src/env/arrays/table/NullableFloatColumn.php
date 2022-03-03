@@ -9,9 +9,6 @@
      */
     class NullableFloatColumn extends Column
     {
-        /** @var float|null */
-        public $value;
-
         /**
          * NullableFloatColumn constructor.
          * @param string     $name

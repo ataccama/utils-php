@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -8,7 +9,7 @@
      */
     interface IPair
     {
-        public function getKey();
+        public function getKey(): int|string;
 
-        public function getValue();
+        public function getValue(): mixed;
     }

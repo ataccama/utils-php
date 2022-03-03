@@ -13,11 +13,12 @@
     class Row implements IArray
     {
         /** @var IColumn[] */
-        private $columns;
+        private array $columns;
 
         /**
          * TableRow constructor.
          * @param IColumn[] $columns
+         * @throws \Exception
          */
         public function __construct(array $columns = [])
         {
@@ -34,7 +35,7 @@
         }
 
         /**
-         * @return mixed[]
+         * @return IColumn[]
          */
         public function toArray(): array
         {

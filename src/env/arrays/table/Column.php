@@ -12,11 +12,8 @@
      */
     class Column implements IColumn
     {
-        /** @var string */
-        public $name;
-
-        /** @var mixed|null */
-        public $value;
+        protected string $name;
+        protected mixed $value;
 
         /**
          * Column constructor.
@@ -34,7 +31,7 @@
             return $this->name;
         }
 
-        public function getValue()
+        public function getValue(): mixed
         {
             return $this->value;
         }

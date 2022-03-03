@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\DT;
 
@@ -15,7 +16,7 @@
          *
          * @var bool
          */
-        public $showSeconds = true;
+        public bool $showSeconds = true;
 
         public function __toString(): string
         {
@@ -46,7 +47,7 @@
         }
 
         /**
-         * @param \DateInterval $dateInterval
+         * @param \DateInterval $di
          * @return DateInterval
          * @throws \Exception
          */

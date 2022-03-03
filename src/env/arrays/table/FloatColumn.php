@@ -8,9 +8,6 @@
      */
     class FloatColumn extends NullableFloatColumn
     {
-        /** @var float */
-        public $value;
-
         /**
          * FloatColumn constructor.
          * @param string $name
@@ -19,5 +16,10 @@
         public function __construct(string $name, float $value)
         {
             parent::__construct($name, $value);
+        }
+
+        public function getValue(): float
+        {
+            return parent::getValue();
         }
     }

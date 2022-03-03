@@ -5,6 +5,7 @@
     /**
      * Class DT
      * @package Ataccama\Common\Utils
+     * @deprecated Use constants of class DateTimeFormat
      */
     final class DT
     {

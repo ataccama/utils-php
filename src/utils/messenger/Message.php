@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Messenger;
 
@@ -15,14 +16,9 @@
         const SUCCESS = "success";
         const WARNING = "warning";
 
-        /** @var string */
-        public $code;
-
-        /** @var DateTime */
-        public $date;
-
-        /** @var string */
-        public $type;
+        public ?string $code;
+        public DateTime $date;
+        public string $type;
 
         /**
          * Message constructor.
@@ -41,9 +37,10 @@
             $this->code = $code;
             $this->text = $message;
             $this->type = $type;
-            if (!isset($date)) {
-                $date = DateTime::from("now");
+            if (empty($date)) {
+                $this->date = $date = \Ataccama\Common\Utils\DateTime::now();
+            } else {
+                $this->date = $date;
             }
-            $this->date = $date;
         }
     }

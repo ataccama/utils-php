@@ -12,9 +12,6 @@
      */
     class IntegerColumn extends NullableIntegerColumn
     {
-        /** @var int */
-        public $value;
-
         /**
          * IntegerColumn constructor.
          * @param string $name
