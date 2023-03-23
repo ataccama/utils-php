@@ -10,15 +10,16 @@
      *
      * @deprecated Use IntegerId or StringId
      *
-     * @package Ataccama\Common\Env
-     * @property-read mixed $id
+     * @package    Ataccama\Common\Env
+     * @property-read string $id
      */
     class Entry implements IEntry
     {
         use SmartObject;
 
+
         /** @var string */
-        protected $id;
+        protected string $id;
 
         /**
          * Entry constructor.
@@ -30,17 +31,17 @@
         }
 
         /**
-         * @return mixed
+         * @return string
          */
-        public function getId()
+        public function getId(): string
         {
             return $this->id;
         }
 
         /**
-         * @deprecated
          * @param IEntry[] $entries
          * @return BaseArray
+         * @deprecated
          */
         public static function toIds(array $entries): BaseArray
         {

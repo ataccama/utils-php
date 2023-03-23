@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env\Persons;
 
@@ -16,7 +17,7 @@
          * @param Person $person
          * @return PersonList
          */
-        public function add($person)
+        public function add($person): self
         {
             $this->items[$person->id] = $person;
 

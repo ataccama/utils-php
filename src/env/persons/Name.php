@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -16,11 +17,12 @@
     {
         use SmartObject;
 
-        /** @var string */
-        protected $fullname;
 
-        /** @var string[[ */
-        private $exploded = [];
+        /** @var string */
+        protected string $fullname;
+
+        /** @var string[] */
+        private array $exploded = [];
 
         /**
          * Name constructor.
@@ -77,6 +79,4 @@
         {
             return $this->fullname;
         }
-
-
     }

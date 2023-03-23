@@ -1,5 +1,4 @@
 <?php
-
     declare(strict_types=1);
 
     namespace Ataccama\Common\Env\Prototypes;
@@ -17,8 +16,8 @@
     {
         use SmartObject;
 
-        /** @var int */
-        protected $id;
+
+        protected int $id;
 
         /**
          * IntegerId constructor.

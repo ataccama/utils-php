@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -17,7 +18,7 @@
 
 
         /** @var string */
-        public $definition;
+        public string $definition;
 
         /**
          * Email constructor.

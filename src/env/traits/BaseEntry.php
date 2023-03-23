@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -14,13 +15,14 @@
     {
         use SmartObject;
 
+
         /** @var mixed */
-        protected $id;
+        protected mixed $id;
 
         /**
          * @return mixed
          */
-        public function getId()
+        public function getId(): mixed
         {
             return $this->id;
         }

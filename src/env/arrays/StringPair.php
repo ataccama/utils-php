@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env\Arrays;
 
@@ -14,8 +15,8 @@
     {
         /**
          * StringPair constructor.
-         * @param string $key
-         * @param string $value
+         * @param string      $key
+         * @param string|null $value
          */
         public function __construct(string $key, ?string $value)
         {

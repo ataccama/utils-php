@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Comparator;
 
@@ -14,10 +15,10 @@
         /**
          * @param Comparable[] $array
          * @param IComparator  $comparator
-         * @param int          $type
+         * @param bool         $type
          * @return Comparable[]
          */
-        public static function sort(array &$array, IComparator $comparator, int $type = self::ASC): array
+        public static function sort(array &$array, IComparator $comparator, bool $type = self::ASC): array
         {
             $keys = array_keys($array);
 

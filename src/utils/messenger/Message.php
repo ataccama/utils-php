@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Messenger;
 
@@ -15,26 +16,21 @@
         const SUCCESS = "success";
         const WARNING = "warning";
 
-        /** @var string */
-        public $code;
-
-        /** @var DateTime */
-        public $date;
-
-        /** @var string */
-        public $type;
+        public int $code;
+        public DateTime $date;
+        public string $type;
 
         /**
          * Message constructor.
          * @param string        $message
          * @param string        $type
-         * @param string|null   $code
+         * @param int|null      $code
          * @param DateTime|null $date
          */
         public function __construct(
             string $message,
             string $type = self::ERROR,
-            string $code = null,
+            int $code = null,
             DateTime $date = null
         ) {
             parent::__construct($message);

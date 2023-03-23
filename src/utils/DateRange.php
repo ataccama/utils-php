@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils;
 
@@ -16,16 +17,17 @@
     {
         use SmartObject;
 
+
         /** @var DateTime */
-        public $from;
+        public DateTime $from;
 
         /** @var DateTime|null */
-        public $to;
+        public ?DateTime $to;
 
         /**
          * DateInterval constructor.
-         * @param DateTime $from
-         * @param DateTime $to
+         * @param DateTime      $from
+         * @param DateTime|null $to
          */
         public function __construct(DateTime $from, DateTime $to = null)
         {
@@ -40,11 +42,8 @@
         public function getInterval(): \Ataccama\Common\Utils\DT\DateInterval
         {
             $d = $this->from->diff($this->to);
-            if ($d !== false) {
-                return \Ataccama\Common\Utils\DT\DateInterval::create($d);
-            }
 
-            throw new \Exception("Difference between two dates is not possible");
+            return \Ataccama\Common\Utils\DT\DateInterval::create($d);
         }
 
         /**

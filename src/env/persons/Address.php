@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env\User;
 
@@ -8,23 +9,12 @@
      */
     class Address
     {
-        /** @var string */
-        public $street;
-
-        /** @var string */
-        public $city;
-
-        /** @var string */
-        public $postcode;
-
-        /** @var string */
-        public $country;
-
-        /** @var string|null */
-        public $state;
-
-        /** @var string|null */
-        public $additionalDetail;
+        public string $street;
+        public string $city;
+        public string $postcode;
+        public string $country;
+        public string|null $state;
+        public string|null $additionalDetail;
 
         /**
          * Address constructor.

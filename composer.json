@@ -2,15 +2,15 @@
   "name": "ataccama/utils-php",
   "license": "MIT",
   "description": "PHP classes which may help and save your time.",
-  "version": "3.0.11",
+  "version": "5.0.0",
   "type": "library",
   "require": {
-    "php": ">= 7.2.0",
-    "nette/utils": ">= 2.4",
-    "nette/caching": ">= 2.4"
+    "php": ">= 8.2",
+    "nette/utils": ">= 3.0",
+    "nette/caching": ">= 3.0"
   },
   "require-dev": {
-    "nette/tester": ">= 2.3"
+    "nette/tester": ">= 2.4"
   },
   "autoload": {
     "classmap": ["src/"],
@@ -19,7 +19,7 @@
   "minimum-stability": "stable",
   "config": {
     "platform": {
-      "php": "7.2"
+      "php": "8.2"
     }
   }
 }

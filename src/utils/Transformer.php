@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils;
 
@@ -12,7 +13,7 @@
     class Transformer
     {
         /**
-         * Transforms DateTime|string into human readable text with "ago" at the end.
+         * Transforms DateTime|string into human-readable text with "ago" at the end.
          * For example: 34 minutes ago
          *
          * @param null $dt
@@ -56,7 +57,7 @@
         }
 
         /**
-         * Transforms DateRange into human readable string.
+         * Transforms DateRange into human-readable string.
          *
          * @param DateRange|null $dr
          * @return string

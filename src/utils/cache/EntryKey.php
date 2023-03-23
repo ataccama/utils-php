@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Cache;
 
@@ -8,16 +9,17 @@
 
     /**
      * Class EntryKey
-     * @package Ataccama\Common\Utils\Cache
+     * @package    Ataccama\Common\Utils\Cache
      * @property-read mixed  $id
      * @property-read string $prefix
+     * @deprecated Implement your own IKey class
      */
     abstract class EntryKey implements IKey
     {
         use SmartObject;
 
-        /** @var mixed */
-        protected $id;
+
+        protected string $id;
 
         /**
          * ContentKey constructor.
@@ -29,9 +31,9 @@
         }
 
         /**
-         * @return mixed
+         * @return string
          */
-        public function getId()
+        public function getId(): string
         {
             return $this->id;
         }

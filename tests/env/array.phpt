@@ -90,9 +90,11 @@
     Assert::same(20, $array_2->get(0));
 
     $str_array = new class extends \Ataccama\Common\Env\BaseArray {
-        public function add($o)
+        public function add($o): \Ataccama\Common\Env\BaseArray
         {
             $this->items[$o] = $o . $o;
+
+            return $this;
         }
     };
 

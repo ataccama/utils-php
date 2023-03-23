@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -8,8 +9,7 @@
      */
     class Message
     {
-        /** @var string */
-        public $text;
+        public string $text;
 
         /**
          * Message constructor.

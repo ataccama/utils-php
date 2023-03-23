@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -9,12 +10,12 @@
     class Map extends BaseArray
     {
         /**
-         * @param             $value
-         * @param string|null $key
-         * @param bool        $overwrite
+         * @param                 $value
+         * @param string|int|null $key
+         * @param bool            $overwrite
          * @return Map
          */
-        public function add($value, string $key = null, bool $overwrite = true)
+        public function add($value, string|int $key = null, bool $overwrite = true): self
         {
             if (isset($key)) {
                 if ($overwrite) {
@@ -36,7 +37,7 @@
          * @param bool $overwrite
          * @return Map
          */
-        public function insert($map, bool $overwrite = true)
+        public function insert($map, bool $overwrite = true): self
         {
             foreach ($map as $key => $value) {
                 $this->add($value, $key, $overwrite);
@@ -47,9 +48,9 @@
 
         /**
          * @param $key
-         * @return mixed|null
+         * @return mixed
          */
-        public function get($key)
+        public function get($key): mixed
         {
             return parent::get($key);
         }

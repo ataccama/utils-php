@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -14,7 +15,7 @@
          * @param IEntry $entry
          * @return EntryList
          */
-        public function add($entry)
+        public function add($entry): self
         {
             $this->items[$entry->id] = $entry;
 

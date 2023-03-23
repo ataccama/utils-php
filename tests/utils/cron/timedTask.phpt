@@ -7,9 +7,9 @@
 
     $cron->addTask(new class extends \Ataccama\Common\Utils\Cron\TimedTask
     {
-        private $messenger;
+        private \Ataccama\Common\Utils\Messenger\Messenger $messenger;
 
-        private $runs = 1;
+        private int $runs = 1;
 
         public function __construct()
         {
@@ -41,17 +41,14 @@
     });
 
     $cron->run();
-
     \Tester\Assert::count(1, $cron->messenger);
 
-    $cron->messenger->clear();
     $cron->run();
 
     \Tester\Assert::count(1, $cron->messenger);
 
     sleep(3);
 
-    $cron->messenger->clear();
     $cron->run();
 
     \Tester\Assert::count(2, $cron->messenger);

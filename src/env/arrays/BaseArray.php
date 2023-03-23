@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env;
 
@@ -14,10 +15,9 @@
      */
     class BaseArray implements \Iterator, IArray, \Countable
     {
-        /** @var array */
-        protected $items = [];
+        protected array $items = [];
 
-        public function add($o)
+        public function add($o): self
         {
             $this->items[] = $o;
 
@@ -29,7 +29,7 @@
             return $this->count() == 0;
         }
 
-        public function current()
+        public function current(): mixed
         {
             return current($this->items);
         }
@@ -39,7 +39,7 @@
             next($this->items);
         }
 
-        public function key()
+        public function key(): string|int|null
         {
             return key($this->items);
         }
@@ -84,7 +84,7 @@
             return isset($this->items[$i]);
         }
 
-        public function sort(bool $type = Sorter::ASC, IComparator $comparator = null)
+        public function sort(bool $type = Sorter::ASC, IComparator $comparator = null): bool|self
         {
             if (!isset($comparator)) {
                 $comparator = new Comparator();
@@ -101,7 +101,7 @@
             return $this;
         }
 
-        public function insert($baseArray)
+        public function insert($baseArray): self
         {
             foreach ($baseArray as $item) {
                 $this->add($item);
@@ -115,7 +115,7 @@
             $this->items = [];
         }
 
-        public function remove($i, bool $reIndex = false)
+        public function remove($i, bool $reIndex = false): mixed
         {
             $item = null;
 

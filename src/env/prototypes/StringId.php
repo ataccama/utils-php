@@ -17,8 +17,7 @@
     {
         use SmartObject;
 
-        /** @var string */
-        protected $id;
+        protected string $id;
 
         /**
          * StringId constructor.

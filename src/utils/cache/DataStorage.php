@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Utils\Cache;
 
@@ -12,14 +13,9 @@
      */
     class DataStorage
     {
-        /** @var array */
-        protected $objects = [];
-
-        /** @var bool */
-        public $cache = true;
-
-        /** @var Cache */
-        private $cachedStorage;
+        protected array $objects = [];
+        public bool $cache = true;
+        private Cache $cachedStorage;
 
         /**
          * DataStorage constructor.
@@ -43,7 +39,7 @@
          * @return mixed|null
          * @throws \Throwable
          */
-        public function get(IKey $key)
+        public function get(IKey $key): mixed
         {
             $key = self::getKey($key);
 
@@ -76,13 +72,13 @@
          * Adds object to data storage and cached it.
          *
          * @param IKey   $key
-         * @param        $o
+         * @param mixed  $o
          * @param string $expireIn
          * @param bool   $cacheSliding
          * @return mixed
          * @throws \Throwable
          */
-        public function add(IKey $key, $o, $expireIn = '2 months', $cacheSliding = true)
+        public function add(IKey $key, mixed $o, string $expireIn = '2 months', bool $cacheSliding = true): mixed
         {
             $key = self::getKey($key);
 
@@ -129,6 +125,11 @@
             return (!empty($key->getPrefix()) ? $key->getPrefix() . '_' : '') . $key->getId();
         }
 
+        /**
+         * @param IKey $child
+         * @return Dependency|null
+         * @throws \Throwable
+         */
         private function getDependency(IKey $child): ?Dependency
         {
             return $this->get(new Dependency($child));
@@ -159,7 +160,7 @@
         protected function removeDependency(IKey $child, IKey $parent): void
         {
             $dependency = $this->get(new Dependency($child));
-            if ($dependency != null && $dependency instanceof Dependency) {
+            if ($dependency instanceof Dependency) {
                 $dependency->removeDependency(new Dependency($parent));
 
                 if ($dependency->count() > 0) {

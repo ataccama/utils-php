@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Utils;
 
@@ -12,13 +13,10 @@
      */
     class Clock
     {
-        private static $dataPath = __DIR__ . "/../../../temp/clocks";
+        private static string $dataPath = __DIR__ . "/../../../temp/clocks";
 
-        /** @var string */
-        private $id;
-
-        /** @var string */
-        private $tickLength;
+        private string $id;
+        private string $tickLength;
 
         /**
          * @param string $path

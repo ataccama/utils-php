@@ -1,4 +1,5 @@
 <?php
+    declare(strict_types=1);
 
     namespace Ataccama\Common\Env\Arrays;
 
@@ -46,7 +47,7 @@
          * @param StringPairArray $stringPairArray
          * @return StringPairArray
          */
-        public function insert($stringPairArray)
+        public function insert($stringPairArray): self
         {
             parent::insert($stringPairArray);
 
