@@ -8,8 +8,9 @@
 
     /**
      * Trait BaseEntry
-     * @package Ataccama\Common\Env
+     * @package Ataccama\Common\Traits
      * @property-read mixed $id
+     * @deprecated Use IdentifiedByInteger or IdentifiedByString
      */
     trait BaseEntry
     {
