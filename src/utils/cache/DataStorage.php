@@ -15,7 +15,7 @@
     {
         protected array $objects = [];
         public bool $cache = true;
-        private Cache $cachedStorage;
+        protected Cache $cachedStorage;
 
         /**
          * DataStorage constructor.
