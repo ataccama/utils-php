@@ -31,17 +31,17 @@
         }
 
         /**
-         * @return Message
+         * @return Message|null
          */
-        public function current(): Message
+        public function current(): ?Message
         {
             return parent::current();
         }
 
         /**
-         * @return Message
+         * @return Message|null
          */
-        public function getLast(): Message
+        public function getLast(): ?Message
         {
             return end($this->items);
         }
